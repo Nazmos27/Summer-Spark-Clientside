@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="footer p-10 bg-base-200 text-base-content">
         <div>
           <img src="https://i.ibb.co/dPYtwPJ/website-Logo.png" className='h-16 w-28' alt="" />
-          <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+          <p> <span  className='text-2xl'>Summer Spark Academy</span> <br />Enjoy Your Vacation,Explore The World By Learning Something New</p>
         </div>
         <div>
           <span className="footer-title">Services</span>

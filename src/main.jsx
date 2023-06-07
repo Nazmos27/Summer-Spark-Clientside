@@ -9,6 +9,8 @@ import {
 import NavBar from './Components/Shared/NavBar.jsx';
 import Main from './Components/Layout/CommonInterface/Home/Main.jsx';
 import Home from './Components/Layout/CommonInterface/Home/Home.jsx';
+import LogIn from './Components/Authentication/LogIn.jsx';
+import Registration from './Components/Authentication/Registration.jsx';
 
 
 const router = createBrowserRouter([
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>
+      },
+      {
+        path:"/login",
+        element:<LogIn></LogIn>
+      },
+      {
+        path:"/register",
+        element:<Registration></Registration>
       }
     ]
   },
