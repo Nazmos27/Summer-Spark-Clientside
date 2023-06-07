@@ -3,13 +3,26 @@ import { useForm } from 'react-hook-form';
 import {FaGoogle} from 'react-icons/fa'
 
 import { Link } from 'react-router-dom';
+import useAuth from '../Hooks/useAuth';
 
 const Registration = () => {
+    const {createUser} = useAuth()
+    
 
 
-    const { register, handleSubmit,  formState: { errors } } = useForm();
+    const { register, handleSubmit, reset,  formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
+        createUser(data.email,data.password)
+        .then(res => {
+            const loggedUser = res.user
+            console.log(loggedUser);
+            reset()
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+        
     }
 
 

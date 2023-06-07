@@ -11,24 +11,25 @@ import Main from './Components/Layout/CommonInterface/Home/Main.jsx';
 import Home from './Components/Layout/CommonInterface/Home/Home.jsx';
 import LogIn from './Components/Authentication/LogIn.jsx';
 import Registration from './Components/Authentication/Registration.jsx';
+import AuthProvider from './Components/Providers/AuthProvider.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
-        path:"/",
-        element:<Home></Home>
+        path: "/",
+        element: <Home></Home>
       },
       {
-        path:"/login",
-        element:<LogIn></LogIn>
+        path: "/login",
+        element: <LogIn></LogIn>
       },
       {
-        path:"/register",
-        element:<Registration></Registration>
+        path: "/register",
+        element: <Registration></Registration>
       }
     ]
   },
@@ -36,8 +37,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className='md:mx-10'>
-    <RouterProvider router={router} />
-    </div>
+    <AuthProvider>
+      <div className='md:mx-10'>
+      <RouterProvider router={router} />
+      </div></AuthProvider>
   </React.StrictMode>,
 )
