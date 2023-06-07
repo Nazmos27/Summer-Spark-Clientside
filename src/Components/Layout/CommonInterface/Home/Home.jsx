@@ -1,8 +1,12 @@
 import React from 'react'
+import SliderSection from './SliderSection/SliderSection'
+
 
 const Home = () => {
   return (
-    <div>this is home</div>
+    <div>
+      <SliderSection></SliderSection>      
+    </div>
   )
 }
 

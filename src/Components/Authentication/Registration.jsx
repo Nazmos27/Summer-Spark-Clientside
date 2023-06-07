@@ -26,50 +26,53 @@ const Registration = () => {
     }
 
 
-
+// ToDo: 1.implement google registration
+//       2.make confirm password field,gender,etc as per requirment
+//       3.password validation as per requirment
 
   return (
     <div>
-        <div className="hero min-h-screen bg-black md:py-20 py-20">
+        <div className="hero min-h-screen md:py-20 bg-base-200 py-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <img src="https://i.ibb.co/S7mJR8w/regi.gif" alt="" />
+                   
+                    <img src="https://i.ibb.co/YjMLPxs/cyber-security-gif-resized-1.gif" alt="" />
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-black">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-white">Name</span>
+                                    <span className="label-text ">Name</span>
                                 </label>
                                 <input type="text" {...register("name" , {required:true})} placeholder="Your Name" className="input input-bordered rounded-none" />
                                 {errors.name?.type ==='required' && <span className='text-red-600 text-left'>*This field is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-white">PhotoURL</span>
+                                    <span className="label-text ">PhotoURL</span>
                                 </label>
                                 <input type="text" placeholder="Photo URL" className="input input-bordered rounded-none" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-white">Email</span>
+                                    <span className="label-text ">Email</span>
                                 </label>
                                 <input type="text" placeholder="email" {...register("email", {required:true})} className="input input-bordered rounded-none" />
                                 {errors.email?.type ==='required' && <span className='text-red-600 text-left'>*This field is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-white">Password</span>
+                                    <span className="label-text ">Password</span>
                                 </label>
                                 <input type="text" placeholder="password" {...register("password",{required:true , minLength:6} )} className="input input-bordered rounded-none" />
                                 {errors.password?.type ==='minLength' && <span className='text-red-600 text-left text-sm    '>Password must contain atleast 6 character</span>}
 
-                                <p className='text-sm text-white font-semibold'>Already Have An Account? <Link to="/login" className='underline text-sm'>Log In Now</Link></p>
+                                <p className='text-sm  font-semibold'>Already Have An Account? <Link to="/login" className='underline text-sm'>Log In Now</Link></p>
                                     
                             </div>
                             <div className="form-control mt-6">
-                                <input type="submit" value="Registraion" className='btn' />
+                                <input type="submit" value="Registraion" className='btn btn-secondary text-white' />
                                 <div className="tooltip tooltip-bottom" data-tip="Sign In with Google">
                                     <FaGoogle  className='text-gray-400 text-4xl mx-auto mt-6'></FaGoogle>
                                     </div>
