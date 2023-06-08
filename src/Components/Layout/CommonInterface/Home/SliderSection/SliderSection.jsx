@@ -13,7 +13,11 @@ import "./SliderSection.css"
 // import required modules
 import { Parallax, Pagination, Navigation } from "swiper";
 
-
+/**
+ * ToDo:   1.styling bgImage
+ *         2.styling slider paragraph
+ *  
+ */
 const SliderSection = () => {
     return (
         <div className="h-[500px]">
@@ -37,7 +41,8 @@ const SliderSection = () => {
                         className="parallax-bg"
                         style={{
                             "background-image":
-                                "url(https://swiperjs.com/demos/images/nature-1.jpg)",
+                                "url(https://i.ibb.co/BGZGcJS/camp.webp)",
+                            
                         }}
                         data-swiper-parallax="-23%"
                     ></div>

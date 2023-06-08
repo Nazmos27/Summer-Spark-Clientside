@@ -38,7 +38,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <div className='md:mx-10'>
+      <div className='md:mx-10 mx-4'>
       <RouterProvider router={router} />
       </div></AuthProvider>
   </React.StrictMode>,
