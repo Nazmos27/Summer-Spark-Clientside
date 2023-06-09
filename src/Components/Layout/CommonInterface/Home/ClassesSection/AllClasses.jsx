@@ -14,10 +14,16 @@ const AllClasses = () => {
             })
     }, [])
 
+
+/**
+ * ToDo: 1.make heding componenet separately and call in every section
+ *       2.istructor name can be link up to their profile or a modal can be used to show their details
+ */
+
     return (
         <div className='text-center md:my-20 my-10'>
-            <h1 className='md:my-10'><span className='text-4xl '><Typewriter
-            words={'Popular Classes'}
+            <h1 className='md:my-10 text-4xl'>Popular <span className='text-4xl '><Typewriter
+            words={['Classes']}
             loop={5}
             cursor
             cursorStyle='_'

@@ -1,0 +1,46 @@
+
+
+[
+    {
+      "name": "Jessica Reyn",
+      "image": "https://i.ibb.co/k5C5PHy/pexels-max-fischer-5212321.jpg",
+      "email": "jessica.reynolds@example.com",
+      "name_of_classes": ["Origami Workshop", "Painting for Kids"],
+      "number_of_classes": 2
+    },
+    {
+      "name": "David Mitchell",
+      "image": "https://i.ibb.co/B2zd3Qy/pexels-karolina-grabowska-6256238.jpg",
+      "email": "david.mitchell@example.com",
+      "name_of_classes": ["Painting for Kids"],
+      "number_of_classes": 1
+    },
+    {
+      "name": "Sophia Loren",
+      "image": "https://i.ibb.co/dQ3myQP/pexels-spencer-lee-8730572.jpg",
+      "email": "sophie.peterson@example.com",
+      "name_of_classes": ["Paper Crafts"],
+      "number_of_classes": 1
+    },
+    {
+      "name": "Daniel Foster",
+      "image": "https://i.ibb.co/4JSMKG4/pexels-max-fischer-5212361.jpg",
+      "email": "daniel.foster@example.com",
+      "name_of_classes": ["Woodworking"],
+      "number_of_classes": 1
+    },
+    {
+      "name": "Emily Carter",
+      "image": "https://i.ibb.co/sWt2bk4/pexels-antoni-shkraba-production-8278907.jpg",
+      "email": "emily.carter@example.com",
+      "name_of_classes": ["Embroidery"],
+      "number_of_classes": 1
+    },
+    {
+      "name": "Oliver Johnson",
+      "image": "https://i.ibb.co/qyz1cWt/pexels-tima-miroshnichenko-5428141.jpg",
+      "email": "oliver.johnson@example.com",
+      "name_of_classes": ["Jewelry Making"],
+      "number_of_classes": 1
+    }
+  ]

@@ -1,7 +1,7 @@
 [
     {
         "name": "Drawing and Coloring",
-        "instructor": "Jessica Reynolds",
+        "instructor": "Jessica Reyn",
         "available_seats": 12,
         "image": "https://i.ibb.co/mvgvV7s/pexels-anastasia-shuraeva-6966323.jpg",
         "price": "$100"
@@ -15,7 +15,7 @@
     },
     {
         "name": "Playful Clay Sculpting",
-        "instructor": "Sophie Peterson",
+        "instructor": "Sophia Loren",
         "available_seats": 10,
         "image": "https://i.ibb.co/cktCvnb/pexels-pavel-danilyuk-8422179.jpg",
         "price": "$120"

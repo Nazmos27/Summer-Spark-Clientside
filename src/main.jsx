@@ -12,6 +12,8 @@ import Home from './Components/Layout/CommonInterface/Home/Home.jsx';
 import LogIn from './Components/Authentication/LogIn.jsx';
 import Registration from './Components/Authentication/Registration.jsx';
 import AuthProvider from './Components/Providers/AuthProvider.jsx';
+import SideNav from './Components/Shared/SideNav.jsx';
+import AddClass from './Components/Layout/UserInterface/Dashboard/Insturctor/AddClass.jsx';
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:"/dashboard",
+    element:<SideNav></SideNav>,
+    children:[
+      {
+        path:"addclass",
+        element:<AddClass></AddClass>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
