@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom'
 import useAuth from '../Hooks/useAuth'
 
 const NavBar = () => {
-    const { user } = useAuth()
+    const { user , logOut } = useAuth()
 
+    const handleLogOut = () =>{
+        logOut()
+        .then(() => {})
+        .catch(error => {console.log(error.message)})
+    }
     const listItem = <><li> <Link><a>Home</a></Link> </li>
         <li><a> <Link>Instructors</Link> </a></li>
         <li><Link><a>Classes</a></Link></li>
@@ -48,7 +53,7 @@ const NavBar = () => {
                                 <div className='tooltip tooltip-bottom ' data-tip={user.displayName}>
                                     <img src={user.photoURL} className='w-12 rounded-full' alt="" />
                                 </div>
-                                <button className='btn btn-primary hidden md:block'>Log Out</button>
+                                <button onClick={handleLogOut} className='btn btn-primary hidden md:block'>Log Out</button>
                             </div>
                         </>
                     }
