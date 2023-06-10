@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBookOpen, FaCalendarAlt, FaCalendarCheck, FaChalkboard, FaChalkboardTeacher, FaHive, FaHome, FaShoppingCart, FaStar, FaUserCog, FaUsersCog, FaWallet } from 'react-icons/fa'
+import { FaBookOpen,  FaChalkboard, FaChalkboardTeacher, FaHive, FaHome, FaUsersCog } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
 
 const SideNav = () => {

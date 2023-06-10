@@ -36,6 +36,7 @@ const AllUser = () => {
                 key={index}
                 data = {item}
                 order = {index}
+                refetch = {refetch}
                 ></UserTableCard>)
               }
             </tbody>
