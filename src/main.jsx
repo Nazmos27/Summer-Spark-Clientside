@@ -14,7 +14,22 @@ import Registration from './Components/Authentication/Registration.jsx';
 import AuthProvider from './Components/Providers/AuthProvider.jsx';
 import SideNav from './Components/Shared/SideNav.jsx';
 import AddClass from './Components/Layout/UserInterface/Dashboard/Insturctor/AddClass.jsx';
+import AllUser from './Components/Layout/UserInterface/Dashboard/Admin/AllUser.jsx';
 
+
+//query
+
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+
+// Create a client
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -36,12 +51,16 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"/dashboard",
-    element:<SideNav></SideNav>,
-    children:[
+    path: "/dashboard",
+    element: <SideNav></SideNav>,
+    children: [
       {
-        path:"addclass",
-        element:<AddClass></AddClass>
+        path: "addclass",
+        element: <AddClass></AddClass>
+      },
+      {
+        path: "alluser",
+        element: <AllUser></AllUser>
       }
     ]
   }
@@ -50,8 +69,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <div className='md:mx-10 mx-4'>
-      <RouterProvider router={router} />
-      </div></AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className='md:mx-10 mx-4'>
+          <RouterProvider router={router} />
+        </div>
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
