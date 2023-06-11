@@ -2,43 +2,49 @@
     {
         "name": "Drawing and Coloring",
         "instructor": "Jessica Reyn",
+        "instructor_mail":"jessica.reynolds@example.com",
         "available_seats": 12,
         "image": "https://i.ibb.co/mvgvV7s/pexels-anastasia-shuraeva-6966323.jpg",
-        "price": "$100"
+        "price": 100
     },
     {
         "name": "Origami for Kids",
         "instructor": "David Mitchell",
+        "instructor_mail":"david.mitchell@example.com",
         "available_seats": 8,
         "image": "https://i.ibb.co/DbgQ88D/pexels-cottonbro-studio-5190680.jpg",
-        "price": "$80"
+        "price": 80
     },
     {
         "name": "Playful Clay Sculpting",
         "instructor": "Sophia Loren",
+        "instructor_mail":"sophia.loren@example.com",
         "available_seats": 10,
         "image": "https://i.ibb.co/cktCvnb/pexels-pavel-danilyuk-8422179.jpg",
-        "price": "$120"
+        "price": 120
     },
     {
         "name": "Paper Mache Crafts",
         "instructor": "Daniel Foster",
+        "instructor_mail":"daniel.foster@example.com",
         "available_seats": 6,
         "image": "https://i.ibb.co/fpnyx9x/pexels-vanessa-loring-7869442.jpg",
-        "price": "$90"
+        "price": 90
     },
     {
         "name": "DIY Bracelet Making",
         "instructor": "Emily Carter",
+        "instructor_mail":"emily.carter@example.com",
         "available_seats": 15,
         "image": "https://i.ibb.co/9hHzq9Z/how-make-popsicle-stick-bracelets-kids-crafts-three-sisters.jpg",
-        "price": "$70"
+        "price": 70
     },
     {
         "name": "Painting with Fingerprints",
         "instructor": "Oliver Johnson",
+        "instructor_mail":"oliver.johnson@example.com",
         "available_seats": 5,
         "image": "https://i.ibb.co/pvkJHKZ/image-content-detail-half-fingerprints.webp",
-        "price": "$110"
+        "price": 110
     }
 ]

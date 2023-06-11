@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaBookOpen,  FaChalkboard, FaChalkboardTeacher, FaHive, FaHome, FaUsersCog } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
+import useAdmin from '../Hooks/useAdmin'
 
 const SideNav = () => {
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
 
     return (
         <div>
@@ -28,7 +29,7 @@ const SideNav = () => {
                                 </> :
                                 <>
                                     <li><Link to="/dashboard/addclass"><FaBookOpen></FaBookOpen> Add Class</Link></li>
-                                    <li><Link><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</Link></li>
+                                    <li><Link to="/dashboard/myclasses"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</Link></li>
                                 </>
                         }
 

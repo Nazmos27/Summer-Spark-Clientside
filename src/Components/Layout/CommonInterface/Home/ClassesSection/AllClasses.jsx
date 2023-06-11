@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ClassCard from './ClassCard'
 import { Typewriter } from 'react-simple-typewriter'
+import { useQuery } from '@tanstack/react-query'
 
 const AllClasses = () => {
+    const token = localStorage.getItem('access-token')
 
     const [classes, setClasses] = useState([])
     useEffect(() => {
-        fetch('courses.json')
+         fetch('http://localhost:5000/allClasses',{
+            headers:{
+                authorization : `bearer ${token}`
+            }
+         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -14,6 +20,7 @@ const AllClasses = () => {
             })
     }, [])
 
+   
 
 /**
  * ToDo: 1.make heding componenet separately and call in every section

@@ -13,7 +13,7 @@ const AllInstructor = () => {
 
     const [info, setInfo] = useState([])
     useEffect(() => {
-        fetch('instructors.json')
+        fetch('http://localhost:5000/allInstructors')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

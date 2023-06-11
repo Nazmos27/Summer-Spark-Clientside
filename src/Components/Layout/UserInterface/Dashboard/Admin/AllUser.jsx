@@ -1,13 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import UserTableCard from './UserTableCard'
+import useTooken from '../../../../Hooks/useTooken'
 
 const AllUser = () => {
-
-  const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const result = await fetch('http://localhost:5000/users')
+  const token = localStorage.getItem('access-token')
+  
+  const { data: users=[], refetch } = useQuery(['users'], async () => {
+    const result = await fetch('http://localhost:5000/users',{
+      headers:{
+        authorization : `bearer ${token}`
+      }
+    })
     return result.json()
   })
+
 
 
   return (

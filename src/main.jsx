@@ -26,6 +26,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import MyClasses from './Components/Layout/UserInterface/Dashboard/Insturctor/MyClasses.jsx';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 
 
 // Create a client
@@ -52,11 +54,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <SideNav></SideNav>,
+    element:<PrivateRoute> <SideNav></SideNav></PrivateRoute>,
     children: [
       {
         path: "addclass",
         element: <AddClass></AddClass>
+      },
+      {
+        path:"myclasses",
+        element:<MyClasses></MyClasses>
       },
       {
         path: "alluser",

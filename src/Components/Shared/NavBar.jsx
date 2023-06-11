@@ -16,7 +16,8 @@ const NavBar = () => {
         <li><Link to="/login">Log In</Link></li>
     </>
 
-    // ToDo:toggling menubar in mobile device(line 20)
+    // ToDo: 1. toggling menubar in mobile device(line 20)
+     //      2. manage class route set up properly 
     return (
         <div>
             <div className="navbar bg-base-100 ">

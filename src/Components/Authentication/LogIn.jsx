@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import useAuth from '../Hooks/useAuth'
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
+import { ToastContainer } from 'react-toastify'
 
 const LogIn = () => {
     const {signInUser,googleSignIn} = useAuth()
@@ -82,6 +83,17 @@ const LogIn = () => {
                                 <div className="tooltip tooltip-bottom" data-tip="Sign In with Google">
                                     <FaGoogle onClick={handleGoogle} className='text-gray-400 text-4xl mx-auto mt-6'></FaGoogle>
                                     </div>
+                                    <ToastContainer
+                                position="top-center"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"></ToastContainer>
                             </div>
                         </div>
                         </form>
