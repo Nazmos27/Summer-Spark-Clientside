@@ -1,10 +1,11 @@
 import React from 'react'
-import { FaBookOpen,  FaChalkboard, FaChalkboardTeacher, FaHive, FaHome, FaUsersCog } from 'react-icons/fa'
+import { FaBookOpen, FaChalkboard, FaChalkboardTeacher, FaHive, FaHome, FaUsersCog } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
 import useAdmin from '../Hooks/useAdmin'
 
 const SideNav = () => {
     const [isAdmin] = useAdmin()
+
 
     return (
         <div>
@@ -22,15 +23,24 @@ const SideNav = () => {
                         {/* Sidebar content here */}
 
                         {
-                            isAdmin ?
+                            isAdmin === 'admin' &&
                                 <>
                                     <li><Link to="/dashboard/addclass"><FaChalkboard></FaChalkboard> Manage Classes</Link></li>
                                     <li><Link to="/dashboard/alluser"><FaUsersCog></FaUsersCog>Manage Users</Link></li>
-                                </> :
+                                </> 
+}
+                       {    
+                            isAdmin ==='istructor' &&
                                 <>
                                     <li><Link to="/dashboard/addclass"><FaBookOpen></FaBookOpen> Add Class</Link></li>
                                     <li><Link to="/dashboard/myclasses"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</Link></li>
                                 </>
+                        }
+                        {
+                            isAdmin === 'student' && <>
+                                <li><Link to="/dashboard/addclass"><FaBookOpen></FaBookOpen> My Selected Classes</Link></li>
+                                <li><Link to="/dashboard/myclasses"><FaChalkboardTeacher></FaChalkboardTeacher>My Enrolled Classes</Link></li>
+                            </>
                         }
 
 

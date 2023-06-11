@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import useAuth from '../../../../Hooks/useAuth'
-import useTooken from '../../../../Hooks/useTooken'
 
 const MyClasses = () => {
   const {user} = useAuth()

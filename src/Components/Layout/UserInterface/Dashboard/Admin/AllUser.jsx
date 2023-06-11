@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import UserTableCard from './UserTableCard'
-import useTooken from '../../../../Hooks/useTooken'
 
 const AllUser = () => {
   const token = localStorage.getItem('access-token')
