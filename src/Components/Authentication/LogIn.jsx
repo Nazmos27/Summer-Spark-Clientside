@@ -37,16 +37,28 @@ const LogIn = () => {
         .then(res => {
             const loggedUser = res.user
             console.log(loggedUser)
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Sign In Successfully',
-                showConfirmButton: false,
-                timer: 1500
-              })
+            const saveUser = { name: loggedUser.displayName, email: loggedUser.email, img:loggedUser.photoURL, role: 'student' }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'Registration Successful',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            })
         })
         .catch(error => {
-            setError(error.message);
+            console.log(error.message)
         })
     }
 

@@ -11,7 +11,7 @@ const NavBar = () => {
         .catch(error => {console.log(error.message)})
     }
     const listItem = <><li> <Link><a>Home</a></Link> </li>
-        <li><a> <Link>Instructors</Link> </a></li>
+        <li><a> <Link to="/instructors">Instructors</Link> </a></li>
         <li><Link><a>Classes</a></Link></li>
         <li><Link to="/login">Log In</Link></li>
     </>

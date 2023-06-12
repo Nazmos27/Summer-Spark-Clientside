@@ -33,6 +33,7 @@ import ErrorPage from './Components/ErrorPage.jsx';
 import SelectedClasses from './Components/Layout/UserInterface/Dashboard/Student/SelectedClasses.jsx';
 import EnrolledClasses from './Components/Layout/UserInterface/Dashboard/Student/EnrolledClasses.jsx';
 import ManageClass from './Components/Layout/UserInterface/Dashboard/Admin/ManageClass/ManageClass.jsx';
+import Instructors from './Components/Layout/CommonInterface/Istructors/Instructors.jsx';
 
 
 // Create a client
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration></Registration>
+      },
+      {
+        path:"/instructors",
+        element:<Instructors></Instructors>
       }
     ]
   },
