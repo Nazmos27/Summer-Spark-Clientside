@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBookOpen, FaChalkboard, FaChalkboardTeacher, FaHive, FaHome, FaUsersCog } from 'react-icons/fa'
+import { FaBookOpen, FaChalkboard, FaChalkboardTeacher, FaCheckDouble, FaCheckSquare, FaHive, FaHome, FaUsersCog } from 'react-icons/fa'
 import { Link, Outlet } from 'react-router-dom'
 import useAdmin from '../Hooks/useAdmin'
 
@@ -11,7 +11,7 @@ const SideNav = () => {
         <div>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content flex flex-col items-center justify-center">
+                <div className="drawer-content flex flex-col bg-white items-center justify-center">
                     {/* Page content here */}
                     <Outlet></Outlet>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
@@ -25,12 +25,12 @@ const SideNav = () => {
                         {
                             isAdmin === 'admin' &&
                                 <>
-                                    <li><Link to="/dashboard/addclass"><FaChalkboard></FaChalkboard> Manage Classes</Link></li>
+                                    <li><Link to="/dashboard/allClasses"><FaChalkboard></FaChalkboard> Manage Classes</Link></li>
                                     <li><Link to="/dashboard/alluser"><FaUsersCog></FaUsersCog>Manage Users</Link></li>
                                 </> 
 }
                        {    
-                            isAdmin ==='istructor' &&
+                            isAdmin ==='instructor' &&
                                 <>
                                     <li><Link to="/dashboard/addclass"><FaBookOpen></FaBookOpen> Add Class</Link></li>
                                     <li><Link to="/dashboard/myclasses"><FaChalkboardTeacher></FaChalkboardTeacher>My Classes</Link></li>
@@ -38,8 +38,8 @@ const SideNav = () => {
                         }
                         {
                             isAdmin === 'student' && <>
-                                <li><Link to="/dashboard/addclass"><FaBookOpen></FaBookOpen> My Selected Classes</Link></li>
-                                <li><Link to="/dashboard/myclasses"><FaChalkboardTeacher></FaChalkboardTeacher>My Enrolled Classes</Link></li>
+                                <li><Link to="/dashboard/selectedClasses"><FaCheckSquare></FaCheckSquare> My Selected Classes</Link></li>
+                                <li><Link to="/dashboard/enrolledClasses"> <FaCheckDouble></FaCheckDouble> My Enrolled Classes</Link></li>
                             </>
                         }
 

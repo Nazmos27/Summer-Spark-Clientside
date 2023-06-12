@@ -1,17 +1,56 @@
 import React from 'react'
 import useAuth from '../../../../Hooks/useAuth';
 import { Typewriter } from 'react-simple-typewriter'
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 const AddClass = () => {
 
     const {user} = useAuth()
 
-    const handleSubmit = () => {
-        console.log("hi");
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.className.value
+        const image = form.img.value
+        const instructor = form.instructorName.value
+        const instructor_mail = form.instructorEmail.value
+        const available_seats = parseInt(form.availableSeats.value)
+        const price = parseInt(form.price.value)
+        const newClassData = {
+            name,
+            image,
+            instructor,
+            instructor_mail,
+            available_seats,
+            price,
+            status : "pending"
+        }
+        console.log(newClassData);
+        fetch('http://localhost:5000/allClasses',{
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newClassData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your Class has been saved',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              e.target.reset()
+              
+            console.log(data);
+        })
+
+
     }
-
-
 
     return (
         <div className='w-full h-full mb-16 '>
@@ -30,9 +69,9 @@ const AddClass = () => {
                 <div className="card md:grid md:grid-cols-2 gap-4 w-full md:p-16  shadow-2xl bg-base-100">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Classes Name</span>
+                            <span className="label-text">Class Name</span>
                         </label>
-                        <input type="text" name='classesName' placeholder="Name" required className="input input-bordered italic" />
+                        <input type="text" name='className' placeholder="Name" required className="input input-bordered italic" />
                     </div>
                     <div className="form-control">
                         <label className="label">

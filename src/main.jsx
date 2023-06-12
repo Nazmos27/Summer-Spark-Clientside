@@ -30,6 +30,9 @@ import MyClasses from './Components/Layout/UserInterface/Dashboard/Insturctor/My
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
 import AdminRoute from './Components/PrivateRoute/AdminRoute.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
+import SelectedClasses from './Components/Layout/UserInterface/Dashboard/Student/SelectedClasses.jsx';
+import EnrolledClasses from './Components/Layout/UserInterface/Dashboard/Student/EnrolledClasses.jsx';
+import ManageClass from './Components/Layout/UserInterface/Dashboard/Admin/ManageClass/ManageClass.jsx';
 
 
 // Create a client
@@ -70,6 +73,18 @@ const router = createBrowserRouter([
       {
         path: "alluser",
         element: <AdminRoute><AllUser></AllUser></AdminRoute>
+      },
+      {
+        path:"selectedClasses",
+        element:<SelectedClasses></SelectedClasses>
+      },
+      {
+        path:"enrolledClasses",
+        element:<EnrolledClasses></EnrolledClasses>
+      },
+      {
+        path:"allClasses",
+        element: <ManageClass></ManageClass>
       }
     ]
   }
