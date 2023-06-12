@@ -28,6 +28,8 @@ import {
 } from '@tanstack/react-query'
 import MyClasses from './Components/Layout/UserInterface/Dashboard/Insturctor/MyClasses.jsx';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.jsx';
+import AdminRoute from './Components/PrivateRoute/AdminRoute.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 
 // Create a client
@@ -55,6 +57,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element:<PrivateRoute> <SideNav></SideNav></PrivateRoute>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "addclass",
@@ -66,7 +69,7 @@ const router = createBrowserRouter([
       },
       {
         path: "alluser",
-        element: <AllUser></AllUser>
+        element: <AdminRoute><AllUser></AllUser></AdminRoute>
       }
     ]
   }

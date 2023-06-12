@@ -23,6 +23,28 @@ const UserTableCard = ({data,order,refetch}) => {
             }
         })
     }
+
+
+    const handleInstructor = (user) => {
+        console.log(user);
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+            method:"PATCH"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount){
+                refetch()
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `${user.name} Is Now An Instructor`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        })
+    }
+
     return (
         <tr>
             <th>{order + 1}</th>
@@ -35,7 +57,13 @@ const UserTableCard = ({data,order,refetch}) => {
                     <button onClick={() => handleAdmin(data)} className='btn-sm btn-primary'><FaUserCog className='text-white'></FaUserCog></button>
                 }
             </td>
-            <td className='text-center'><button className='btn-sm btn-accent'><FaUserGraduate className='text-white'></FaUserGraduate></button></td>
+            <td className='text-center'>
+                {
+                    role === 'instructor' ? <button disabled={true} className='btn-sm btn-ghost'><FaUserGraduate className='text-white'></FaUserGraduate></button>
+                    :
+                    <button onClick={() => handleInstructor(data)} className='btn-sm btn-accent'><FaUserGraduate className='text-white'></FaUserGraduate></button>
+                }
+            </td>
         </tr>
     )
 }

@@ -2,24 +2,58 @@ import React, { useEffect, useState } from 'react'
 import ClassCard from './ClassCard'
 import { Typewriter } from 'react-simple-typewriter'
 import { useQuery } from '@tanstack/react-query'
+import useAuth from '../../../../Hooks/useAuth'
 
 const AllClasses = () => {
+    const {user} = useAuth()
     const token = localStorage.getItem('access-token')
 
-    const [classes, setClasses] = useState([])
-    useEffect(() => {
-         fetch('http://localhost:5000/allClasses',{
-            headers:{
-                authorization : `bearer ${token}`
-            }
-         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setClasses(data)
-            })
-    }, [])
 
+
+    const { data: classes=[], refetch } = useQuery(['classes'], async () => {
+        const result = await fetch('http://localhost:5000/allClasses',{
+          headers:{
+            authorization : `bearer ${token}`
+          }
+        })
+        return result.json()
+      })
+
+    // const [classes, setClasses] = useState([])
+    // useEffect(() => {
+    //      fetch('http://localhost:5000/allClasses',{
+    //         headers:{
+    //             authorization : `bearer ${token}`
+    //         }
+    //      })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             setClasses(data)
+    //         })
+    // }, [])
+
+
+    const handleSelect = (data) => {
+        const selectedClass = {
+            name : data.name,
+            instructor : data.instructor,
+            price : data.price,
+            select_by : user?.email
+        }
+        fetch('http://localhost:5000/selectedClasses',{
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(selectedClass)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            refetch()
+        })
+    }
    
 
 /**
@@ -44,6 +78,7 @@ const AllClasses = () => {
                 {
                     classes.map(item => <ClassCard
                         data={item}
+                        handleSelect={handleSelect}
                     ></ClassCard>)
                 }
             </div>

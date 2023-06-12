@@ -1,6 +1,9 @@
 import React from 'react'
 
-const ClassCard = ({ data }) => {
+const ClassCard = ({ data , handleSelect}) => {
+
+
+
     const { name, image, price, available_seats, instructor } = data
     return (
         <div>
@@ -15,7 +18,7 @@ const ClassCard = ({ data }) => {
                         <p>Course Fee: ${price}</p>
                         <p>Available:{available_seats}</p>
                         <div className="card-actions">
-                            <button className="btn btn-primary text-white">Enroll Now</button>
+                            <button onClick={() => handleSelect(data)} className="btn btn-primary text-white">Select</button>
                         </div>
                     </div>
                 </div>
