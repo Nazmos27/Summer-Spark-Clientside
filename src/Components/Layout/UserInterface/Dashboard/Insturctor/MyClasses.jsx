@@ -2,10 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import useAuth from '../../../../Hooks/useAuth'
 import MyClassCard from './MyClassCard'
+import useTitle from '../../../../Hooks/useTitle'
 
 const MyClasses = () => {
+
   const {user} = useAuth()
   const token = localStorage.getItem('access-token')
+  useTitle('My Classes')
   
   // console.log(token);
 
