@@ -40,7 +40,8 @@ const AllClasses = () => {
             name : data.name,
             instructor : data.instructor,
             price : data.price,
-            select_by : user?.email
+            select_by : user?.email,
+            status : 'pending'
         }
         fetch('https://assignment-12-server-rouge.vercel.app/selectedClasses',{
             method: 'POST',

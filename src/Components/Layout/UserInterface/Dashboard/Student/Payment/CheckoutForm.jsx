@@ -75,7 +75,8 @@ const CheckoutForm = ({ price,id,name }) => {
             //saving payment info to the server
             const paymentInfo = {
                 email : user?.email,
-                transactionId : transactionId,
+                transactionId : paymentIntent.id,
+                date : new Date().toLocaleString(),
                 price : price,
                 className : name,
                 classId : id
