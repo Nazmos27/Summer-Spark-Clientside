@@ -12,7 +12,7 @@ const AllClasses = () => {
 
 
     const { data: classes=[], refetch } = useQuery(['classes'], async () => {
-        const result = await axios.get('http://localhost:5000/allClasses',{
+        const result = await axios.get('https://assignment-12-server-rouge.vercel.app/allClasses',{
           headers:{
             authorization : `bearer ${token}`
           }
@@ -22,7 +22,7 @@ const AllClasses = () => {
 
     // const [classes, setClasses] = useState([])
     // useEffect(() => {
-    //      fetch('http://localhost:5000/allClasses',{
+    //      fetch('https://assignment-12-server-rouge.vercel.app/allClasses',{
     //         headers:{
     //             authorization : `bearer ${token}`
     //         }
@@ -42,7 +42,7 @@ const AllClasses = () => {
             price : data.price,
             select_by : user?.email
         }
-        fetch('http://localhost:5000/selectedClasses',{
+        fetch('https://assignment-12-server-rouge.vercel.app/selectedClasses',{
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'

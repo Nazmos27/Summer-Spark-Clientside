@@ -6,7 +6,7 @@ const UserTableCard = ({data,order,refetch}) => {
     const {name,role,_id} = data
     const handleAdmin = (user) => {
         console.log(user);
-        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        fetch(`https://assignment-12-server-rouge.vercel.app/users/admin/${user._id}`,{
             method:"PATCH"
         })
         .then(res => res.json())
@@ -27,7 +27,7 @@ const UserTableCard = ({data,order,refetch}) => {
 
     const handleInstructor = (user) => {
         console.log(user);
-        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+        fetch(`https://assignment-12-server-rouge.vercel.app/users/instructor/${user._id}`,{
             method:"PATCH"
         })
         .then(res => res.json())

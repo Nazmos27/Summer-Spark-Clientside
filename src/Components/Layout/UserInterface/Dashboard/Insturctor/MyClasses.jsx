@@ -10,7 +10,7 @@ const MyClasses = () => {
   // console.log(token);
 
   const { data: users = [], refetch } = useQuery(['users',user?.email], async () => {
-    const result = await fetch(`http://localhost:5000/myClasses?email=${user?.email}`,{
+    const result = await fetch(`https://assignment-12-server-rouge.vercel.app/myClasses?email=${user?.email}`,{
       headers:{
         authorization : `bearer ${token}`
       }

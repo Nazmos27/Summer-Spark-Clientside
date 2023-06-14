@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import UserTableCard from './UserTableCard'
+import useTitle from '../../../../Hooks/useTitle'
 
 const AllUser = () => {
   const token = localStorage.getItem('access-token')
+  useTitle('Manage Users')
   
   const { data: users=[], refetch } = useQuery(['users'], async () => {
-    const result = await fetch('http://localhost:5000/users',{
+    const result = await fetch('https://assignment-12-server-rouge.vercel.app/users',{
       headers:{
         authorization : `bearer ${token}`
       }

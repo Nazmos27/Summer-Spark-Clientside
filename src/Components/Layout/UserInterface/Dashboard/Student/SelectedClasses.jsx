@@ -11,7 +11,7 @@ const SelectedClasses = () => {
     const {data : selectedClasses=[],refetch} = useQuery({
         queryKey: ['selectedClasses',user?.email],
         queryFn: async () => {
-            const result = await axios.get(`http://localhost:5000/selectedClasses?email=${user?.email}`)
+            const result = await axios.get(`https://assignment-12-server-rouge.vercel.app/selectedClasses?email=${user?.email}`)
             console.log(result.data);
             return result.data
         }

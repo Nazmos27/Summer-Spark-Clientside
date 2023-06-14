@@ -2,12 +2,16 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa'
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import useTitle from '../Hooks/useTitle';
 
 const Registration = () => {
     const { createUser, updateUserProfile , googleSignIn } = useAuth()
+    useTitle('Registration')
+    const navigate = useNavigate()
+
 
 
 
@@ -21,7 +25,7 @@ const Registration = () => {
                 updateUserProfile(data.name, data.userImg)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email, img:data.userImg, role: 'student' }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://assignment-12-server-rouge.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -39,6 +43,7 @@ const Registration = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
+                                    navigate('/')
                                 }
                             })
                     })
@@ -56,7 +61,7 @@ const Registration = () => {
             const loggedUser = res.user
             console.log(loggedUser)
             const saveUser = { name: loggedUser.displayName, email: loggedUser.email, img:loggedUser.photoURL, role: 'student' }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://assignment-12-server-rouge.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

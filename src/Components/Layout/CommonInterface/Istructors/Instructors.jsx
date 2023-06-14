@@ -3,13 +3,15 @@ import useAuth from '../../../Hooks/useAuth'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import InstructorCard from './InstructorCard'
+import useTitle from '../../../Hooks/useTitle'
 
 const Instructors = () => {
     const {user} = useAuth()
     const token = localStorage.getItem('access-token')
+    useTitle('Instructors')
   
   const { data: instructors=[], refetch } = useQuery(['users',user?.email], async () => {
-    const result = await fetch('http://localhost:5000/users',{
+    const result = await fetch('https://assignment-12-server-rouge.vercel.app/users',{
       headers:{
         authorization : `bearer ${token}`
       }

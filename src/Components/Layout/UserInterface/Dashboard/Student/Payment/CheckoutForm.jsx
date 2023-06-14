@@ -17,7 +17,7 @@ const CheckoutForm = ({ price,id,name }) => {
     const [transactionId,setTransactionId] = useState('')
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://assignment-12-server-rouge.vercel.app/create-payment-intent', {
             method: "POST",
             headers: { "content-type": "application/json", },
             body: JSON.stringify({ price: price }),
@@ -80,7 +80,7 @@ const CheckoutForm = ({ price,id,name }) => {
                 className : name,
                 classId : id
             }
-            await axios.post("http://localhost:5000/payments",paymentInfo)
+            await axios.post("https://assignment-12-server-rouge.vercel.app/payments",paymentInfo)
             .then(res => {
                  console.log(res.data)
                  if(res.data.insertedId){

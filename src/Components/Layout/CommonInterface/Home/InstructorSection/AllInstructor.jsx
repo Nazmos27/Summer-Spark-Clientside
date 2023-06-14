@@ -13,7 +13,7 @@ const AllInstructor = () => {
 
     const [info, setInfo] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/allInstructors')
+        fetch('https://assignment-12-server-rouge.vercel.app/allInstructors')
             .then(res => res.json())
             .then(data => {
                 console.log(data)

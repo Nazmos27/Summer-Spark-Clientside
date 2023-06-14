@@ -3,9 +3,11 @@ import { loadStripe } from '@stripe/stripe-js'
 import React from 'react'
 import CheckoutForm from './CheckoutForm'
 import { useLoaderData } from 'react-router-dom'
+import useTitle from '../../../../../Hooks/useTitle'
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK)
 const Payment = () => {
     const data = useLoaderData()
+    useTitle('Payment')
     // console.log(data);
     const {price,_id,name} = data
   return (

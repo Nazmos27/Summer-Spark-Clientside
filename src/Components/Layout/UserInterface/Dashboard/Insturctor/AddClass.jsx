@@ -3,11 +3,13 @@ import useAuth from '../../../../Hooks/useAuth';
 import { Typewriter } from 'react-simple-typewriter'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useTitle from '../../../../Hooks/useTitle';
 
 
 const AddClass = () => {
 
     const {user} = useAuth()
+    useTitle('Add Class')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,7 +30,7 @@ const AddClass = () => {
             status : "pending"
         }
         console.log(newClassData);
-        fetch('http://localhost:5000/allClasses',{
+        fetch('https://assignment-12-server-rouge.vercel.app/allClasses',{
             method: "POST",
             headers:{
                 "Content-Type": "application/json",

@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 import {FaGoogle} from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import useAuth from '../Hooks/useAuth'
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import { ToastContainer } from 'react-toastify'
+import useTitle from '../Hooks/useTitle'
 
 const LogIn = () => {
     const {signInUser,googleSignIn} = useAuth()
     const [error,setError] = useState('')
+    useTitle('Login')
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/'
+
     const { register, handleSubmit, reset,  formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
@@ -24,6 +30,7 @@ const LogIn = () => {
               })
             const loggedUser = res.user
             console.log(loggedUser);
+            navigate(from,{replace:true})
             reset()
             
         })
@@ -38,7 +45,7 @@ const LogIn = () => {
             const loggedUser = res.user
             console.log(loggedUser)
             const saveUser = { name: loggedUser.displayName, email: loggedUser.email, img:loggedUser.photoURL, role: 'student' }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://assignment-12-server-rouge.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
