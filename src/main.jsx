@@ -34,6 +34,7 @@ import SelectedClasses from './Components/Layout/UserInterface/Dashboard/Student
 import EnrolledClasses from './Components/Layout/UserInterface/Dashboard/Student/EnrolledClasses.jsx';
 import ManageClass from './Components/Layout/UserInterface/Dashboard/Admin/ManageClass/ManageClass.jsx';
 import Instructors from './Components/Layout/CommonInterface/Istructors/Instructors.jsx';
+import Payment from './Components/Layout/UserInterface/Dashboard/Student/Payment/Payment.jsx';
 
 
 // Create a client
@@ -90,6 +91,12 @@ const router = createBrowserRouter([
       {
         path:"allClasses",
         element: <ManageClass></ManageClass>
+      },
+      {
+        path:"payment/:id",
+        element:<Payment></Payment>,
+        loader:({params}) => fetch(`http://localhost:5000/selectedClasses/${params.id}`)
+        
       }
     ]
   }

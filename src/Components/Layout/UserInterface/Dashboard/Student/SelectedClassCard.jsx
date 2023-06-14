@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaTrash } from 'react-icons/fa'
 import { ImCoinDollar } from 'react-icons/im'
+import { Link } from 'react-router-dom'
 
 const SelectedClassCard = ({data,order,refetch}) => {
     const {name,price,instructor} = data
@@ -15,7 +16,7 @@ const SelectedClassCard = ({data,order,refetch}) => {
     <td>${price}</td>
     <td className='text-center'>
         
-            <button  className='btn-sm btn-secondary'><ImCoinDollar className='text-white'></ImCoinDollar></button>
+            <button className='btn-sm btn-secondary'><Link to={`/dashboard/payment/${data._id}`}><ImCoinDollar className='text-white'></ImCoinDollar></Link></button>
 
     </td>
     <td className='text-center'>

@@ -3,6 +3,7 @@ import ClassCard from './ClassCard'
 import { Typewriter } from 'react-simple-typewriter'
 import { useQuery } from '@tanstack/react-query'
 import useAuth from '../../../../Hooks/useAuth'
+import axios from 'axios'
 
 const AllClasses = () => {
     const {user} = useAuth()
@@ -11,12 +12,12 @@ const AllClasses = () => {
 
 
     const { data: classes=[], refetch } = useQuery(['classes'], async () => {
-        const result = await fetch('http://localhost:5000/allClasses',{
+        const result = await axios.get('http://localhost:5000/allClasses',{
           headers:{
             authorization : `bearer ${token}`
           }
         })
-        return result.json()
+        return result.data
       })
 
     // const [classes, setClasses] = useState([])
@@ -51,9 +52,9 @@ const AllClasses = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            refetch()
         })
     }
+    // refetch()
    
 
 /**

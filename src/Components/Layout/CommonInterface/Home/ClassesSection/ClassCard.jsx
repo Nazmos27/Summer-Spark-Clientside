@@ -2,9 +2,10 @@ import React from 'react'
 
 const ClassCard = ({ data , handleSelect}) => {
 
-
-
     const { name, image, price, available_seats, instructor } = data
+
+    
+
     return (
         <div>
             <div>
