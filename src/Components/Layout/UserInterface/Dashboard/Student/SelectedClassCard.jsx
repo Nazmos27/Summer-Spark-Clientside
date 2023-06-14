@@ -17,7 +17,7 @@ const SelectedClassCard = ({data,order,refetch}) => {
           confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
           if (result.isConfirmed) {
-              fetch(`http://localhost:5000/selectedClasses?id=${id}`, {
+              fetch(` https://assignment-12-server-rouge.vercel.app/selectedClasses?id=${id}`, {
                   method: 'DELETE'
               })
                   .then(res => res.json())
